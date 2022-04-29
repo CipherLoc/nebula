@@ -487,7 +487,7 @@ func (i *HostInfo) handshakeComplete(l *logrus.Logger, m *cachedPacketMetrics) {
 }
 
 func (i *HostInfo) GetCert() *cert.NebulaCertificate {
-	if i.ConnectionState != nil {
+	if i != nil && i.ConnectionState != nil {
 		return i.ConnectionState.peerCert
 	}
 	return nil
