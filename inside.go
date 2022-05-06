@@ -57,16 +57,23 @@ func (f *Interface) consumeInsidePacket(packet []byte, fwPacket *firewall.Packet
 	}
 
 	dropReason := f.firewall.Drop(packet, *fwPacket, false, hostinfo, f.caPool, localCache)
-	if dropReason == nil {
-		f.sendNoMetrics(header.Message, 0, ci, hostinfo, hostinfo.remote, packet, nb, out, q)
 
-	} else if f.l.Level >= logrus.DebugLevel {
-		hostinfo.logger(f.l).
-			WithField("fwPacket", fwPacket).
-			WithField("reason", dropReason).
-			Debugln("dropping outbound packet")
+	// close the tunnel if we found a firewall rule that is bad
+	if dropReason != nil {
+		if f.l.Level >= logrus.DebugLevel {
+			hostinfo.logger(f.l).
+				WithField("fwPacket", fwPacket).
+				WithField("reason", dropReason).
+				Debugln("dropping outbound packet")
+		}
+
+		if (dropReason == ErrNoMatchingRule) {
+			f.l.Debugln("closing tunnel")
+			f.closeTunnel(hostinfo, false)
+		}
+	} else if (dropReason == nil) {
+		f.sendNoMetrics(header.Message, 0, ci, hostinfo, hostinfo.remote, packet, nb, out, q)
 	}
-}
 
 // getOrHandshake returns nil if the vpnIp is not routable
 func (f *Interface) getOrHandshake(vpnIp iputil.VpnIp) *HostInfo {
