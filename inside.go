@@ -69,9 +69,10 @@ func (f *Interface) consumeInsidePacket(packet []byte, fwPacket *firewall.Packet
 
 		if dropReason == ErrNoMatchingRule {
 			// send the packet since this host is valid (or was valid at some point)
-			if hostinfo != nil {
-				f.sendNoMetrics(header.Message, 0, ci, hostinfo, hostinfo.remote, packet, nb, out, q)
-			}
+			// if hostinfo != nil {
+			// 	f.l.Debugln("sending last packet")
+			// 	f.sendNoMetrics(header.Message, 0, ci, hostinfo, hostinfo.remote, packet, nb, out, q)
+			// }
 
 			// close the tunnel so we can rebuild it
 			f.l.Debugln("closing tunnel")
