@@ -386,7 +386,7 @@ func (f *Firewall) Drop(packet []byte, fp firewall.Packet, incoming bool, h *Hos
 		delete(conntrack.Conns, fp)
 		conntrack.Unlock()
 
-		f.l.Debugln("deleting conntrack because packet doesn't match")
+		// f.l.Debugln("deleting conntrack because packet doesn't match")
 
 		return ErrNoMatchingRule
 	}
