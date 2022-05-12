@@ -312,6 +312,8 @@ func (f *Interface) emitStats(ctx context.Context, i time.Duration) {
 
 	udpStats := udp.NewUDPStatsEmitter(f.writers)
 
+	// maybe do the loop like this?
+
 	for {
 		select {
 		case <-ctx.Done():
