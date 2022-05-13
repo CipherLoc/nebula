@@ -3,9 +3,13 @@ package nebula
 import (
 	"context"
 	"errors"
+	"fmt"
 	"io"
+	"io/ioutil"
 	"os"
+	"path/filepath"
 	"runtime"
+	"strings"
 	"sync/atomic"
 	"time"
 
@@ -331,4 +335,55 @@ func (f *Interface) Close() error {
 
 	// Release the tun device
 	return f.inside.Close()
+}
+
+func (f *Interface) EmcCmd(con *config.C, configPath string) {
+
+	// build to path to point to the config
+	path := filepath.Join(strings.TrimSuffix(configPath, "config.yml"), ".nebula-cmds")
+	statusPath := filepath.Join(strings.TrimSuffix(configPath, "config.yml"), ".nebula-status")
+
+	ticker := time.NewTicker(time.Second)
+	defer ticker.Stop()
+
+	for _ = range ticker.C {
+
+		// write unix timestamp out to the .nebula-status file
+		// so we can determine if nebula is running
+		data := []byte(fmt.Sprintf("%v", time.Now().Unix()))
+		os.WriteFile(statusPath, data, 0666)
+
+		bytes, err := ioutil.ReadFile(path)
+
+		if err == nil {
+			// READ IN THE FILE'S CONTENTS
+			var str = strings.Trim(strings.ToLower(string(bytes)), "")
+
+			// CLEAR THE FILE
+			data := []byte("")
+			err := os.WriteFile(path, data, 0666)
+			if err != nil {
+				fmt.Println("Error clearing the nebula cmd queue")
+			}
+
+			// EVALUATE THE COMMAND
+			if strings.Contains(str, "restart") {
+				fmt.Printf("Restart command received")
+
+				// RELOAD FROM CONFIG
+				con.ReloadConfig()
+			} else if strings.Contains(str, "kill") {
+				fmt.Printf("Kill command received")
+
+				// JUST STOP
+				os.Exit(0)
+			} else {
+				// DEFAULT RESPONSE
+			}
+		} else {
+			// file probably doesn't exist yet
+			// so don't log
+			// fmt.Printf("Err: %s", err)
+		}
+	}
 }
