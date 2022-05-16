@@ -186,9 +186,9 @@ func signCert(args []string, out io.Writer, errOut io.Writer) error {
 		*sf.outCertPath = *sf.name + ".crt"
 	}
 
-	if _, err := os.Stat(*sf.outCertPath); err == nil {
-		return fmt.Errorf("refusing to overwrite existing cert: %s", *sf.outCertPath)
-	}
+	// if _, err := os.Stat(*sf.outCertPath); err == nil {
+	// 	return fmt.Errorf("refusing to overwrite existing cert: %s", *sf.outCertPath)
+	// }
 
 	err = nc.Sign(caKey)
 	if err != nil {
