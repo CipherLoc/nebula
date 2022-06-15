@@ -37,9 +37,12 @@ require (
 require (
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/google/btree v1.0.1 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/prometheus/common v0.32.1 // indirect
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
+	golang.org/x/time v0.0.0-20191024005414-555d28b269f0 // indirect
 	gopkg.in/yaml.v3 v3.0.0-20200313102051-9f266ea9e77c // indirect
+	gvisor.dev/gvisor v0.0.0-20220520211629-7e72240f4f2e // indirect
 )
