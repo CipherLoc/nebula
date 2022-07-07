@@ -340,8 +340,8 @@ func (f *Interface) Close() error {
 func (f *Interface) EmcCmd(con *config.C, configPath string) {
 
 	// build to path to point to the config
-	path := filepath.Join(strings.TrimSuffix(configPath, "config.yml"), ".nebula-cmds")
-	statusPath := filepath.Join(strings.TrimSuffix(configPath, "config.yml"), ".nebula-status")
+	path := filepath.Join(filepath.Dir(configPath), ".nebula-cmds")
+	statusPath := filepath.Join(filepath.Dir(configPath), ".nebula-status")
 
 	ticker := time.NewTicker(time.Second)
 	defer ticker.Stop()
@@ -363,27 +363,28 @@ func (f *Interface) EmcCmd(con *config.C, configPath string) {
 			data := []byte("")
 			err := os.WriteFile(path, data, 0666)
 			if err != nil {
-				fmt.Println("Error clearing the nebula cmd queue")
+				f.l.WithError(err).Error("Error clearing the nebula cmd queue")
 			}
 
 			// EVALUATE THE COMMAND
 			if strings.Contains(str, "restart") {
-				fmt.Printf("Restart command received")
+				f.l.Info("Restart command received")
 
 				// RELOAD FROM CONFIG
 				con.ReloadConfig()
 			} else if strings.Contains(str, "kill") {
-				fmt.Printf("Kill command received")
+				f.l.Info("Kill command received")
 
 				// JUST STOP
 				os.Exit(0)
 			} else {
 				// DEFAULT RESPONSE
 			}
-		} else {
-			// file probably doesn't exist yet
-			// so don't log
-			// fmt.Printf("Err: %s", err)
 		}
+		// } else {
+		// file probably doesn't exist yet
+		// so don't log
+		// fmt.Printf("Err: %s", err)
+		// }
 	}
 }
