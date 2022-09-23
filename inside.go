@@ -3,7 +3,7 @@ package nebula
 import (
 	"sync/atomic"
 
-	"github.com/flynn/noise"
+	"github.com/cipherloc/noise"
 	"github.com/sirupsen/logrus"
 	"github.com/slackhq/nebula/firewall"
 	"github.com/slackhq/nebula/header"

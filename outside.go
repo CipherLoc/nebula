@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/flynn/noise"
+	"github.com/cipherloc/noise"
 	"github.com/sirupsen/logrus"
 	"github.com/slackhq/nebula/cert"
 	"github.com/slackhq/nebula/firewall"

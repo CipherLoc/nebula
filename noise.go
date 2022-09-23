@@ -5,7 +5,7 @@ import (
 	"encoding/binary"
 	"errors"
 
-	"github.com/flynn/noise"
+	"github.com/cipherloc/noise"
 )
 
 type endianness interface {

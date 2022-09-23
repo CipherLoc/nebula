@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/flynn/noise"
+	"github.com/cipherloc/noise"
 	"github.com/slackhq/nebula/cert"
 	"github.com/slackhq/nebula/iputil"
 	"github.com/slackhq/nebula/test"
