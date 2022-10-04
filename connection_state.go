@@ -28,9 +28,15 @@ type ConnectionState struct {
 }
 
 func (f *Interface) newConnectionState(l *logrus.Logger, initiator bool, pattern noise.HandshakePattern, psk []byte, pskStage int) *ConnectionState {
+	// OVERRIDE FOR FIPS
 	cs := noise.NewCipherSuite(noise.DH25519, noise.CipherAESGCM, noise.HashSHA256)
+
 	if f.cipher == "chachapoly" {
 		cs = noise.NewCipherSuite(noise.DH25519, noise.CipherChaChaPoly, noise.HashSHA256)
+	}
+
+	if f.cipher == "fips-aes" {
+		cs = noise.NewCipherSuite(noise.DH25519, noise.CipherAESGCMFIPS, noise.HashSHA256)
 	}
 
 	curCertState := f.certState

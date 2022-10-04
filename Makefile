@@ -29,6 +29,7 @@ ifndef BUILD_NUMBER
 endif
 
 LDFLAGS = -X main.Build=$(BUILD_NUMBER)
+LDFLAGS=
 
 ALL_LINUX = linux-amd64 \
 	linux-386 \
