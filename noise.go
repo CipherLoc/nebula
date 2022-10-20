@@ -1,9 +1,21 @@
 package nebula
 
+/*
+#cgo LDFLAGS: -L ./lib/ -lcrypto
+#cgo LDFLAGS: -L ./lib/ -lssl
+#cgo CFLAGS: -I ./include/
+#include "openssl/evp.h"
+#include "openssl/aes.h"
+*/
+import "C"
+
 import (
 	"crypto/cipher"
 	"encoding/binary"
 	"errors"
+
+	//"fmt"
+	//"unsafe"
 
 	"github.com/cipherloc/noise"
 )
@@ -23,6 +35,14 @@ type NebulaCipherState struct {
 func NewNebulaCipherState(s *noise.CipherState) *NebulaCipherState {
 	return &NebulaCipherState{c: s.Cipher()}
 
+}
+
+type (
+	Ctx *C.EVP_CIPHER_CTX
+)
+
+func Get_Ctx() Ctx {
+	return C.EVP_CIPHER_CTX_new()
 }
 
 // EncryptDanger encrypts and authenticates a given payload.
@@ -46,9 +66,12 @@ func (s *NebulaCipherState) EncryptDanger(out, ad, plaintext []byte, n uint64, n
 		nb[2] = 0
 		nb[3] = 0
 		noiseEndianness.PutUint64(nb[4:], n)
-		out = s.c.(cipher.AEAD).Seal(out, nb, plaintext, ad)
+
+		out = s.c.Encrypt(out, n, ad, plaintext)
+		//out = s.c.(cipher.AEAD).Seal(out, nb, plaintext, ad)
 		//l.Debugf("Encryption: outlen: %d, nonce: %d, ad: %s, plainlen %d", len(out), n, ad, len(plaintext))
 		return out, nil
+		//}
 	} else {
 		return nil, errors.New("no cipher state available to encrypt")
 	}
@@ -61,7 +84,8 @@ func (s *NebulaCipherState) DecryptDanger(out, ad, ciphertext []byte, n uint64, 
 		nb[2] = 0
 		nb[3] = 0
 		noiseEndianness.PutUint64(nb[4:], n)
-		return s.c.(cipher.AEAD).Open(out, nb, ciphertext, ad)
+		//return s.c.(cipher.AEAD).Open(out, nb, ciphertext, ad)
+		return s.c.Decrypt(out, n, ad, ciphertext)
 	} else {
 		return []byte{}, nil
 	}
