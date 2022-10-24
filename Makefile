@@ -2,7 +2,7 @@ GOMINVERSION = 1.18
 NEBULA_CMD_PATH = "./cmd/nebula"
 GO111MODULE = on
 export GO111MODULE
-CGO_ENABLED = 0
+CGO_ENABLED = 1
 export CGO_ENABLED
 
 # Set up OS specific bits
