@@ -287,6 +287,8 @@ func Main(c *config.C, configTest bool, buildVersion string, logger *logrus.Logg
 	switch ifConfig.Cipher {
 	case "aes":
 		noiseEndianness = binary.BigEndian
+	case "fips-aes":
+		noiseEndianness = binary.BigEndian
 	case "chachapoly":
 		noiseEndianness = binary.LittleEndian
 	default:
