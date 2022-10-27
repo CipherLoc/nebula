@@ -1,14 +1,5 @@
 package nebula
 
-/*
-#cgo LDFLAGS: -L ./lib/ -lcrypto
-#cgo LDFLAGS: -L ./lib/ -lssl
-#cgo CFLAGS: -I ./include/
-#include "openssl/evp.h"
-#include "openssl/aes.h"
-*/
-import "C"
-
 import (
 	"crypto/cipher"
 	"encoding/binary"
@@ -34,15 +25,6 @@ type NebulaCipherState struct {
 
 func NewNebulaCipherState(s *noise.CipherState) *NebulaCipherState {
 	return &NebulaCipherState{c: s.Cipher()}
-
-}
-
-type (
-	Ctx *C.EVP_CIPHER_CTX
-)
-
-func Get_Ctx() Ctx {
-	return C.EVP_CIPHER_CTX_new()
 }
 
 // EncryptDanger encrypts and authenticates a given payload.
