@@ -300,7 +300,7 @@ func (f *Interface) sendNoMetrics(t header.MessageType, st header.MessageSubType
 	}
 
 	var err error
-	out, err = ci.eKey.EncryptDanger(out, out, p, c, nb)
+	out, err = ci.eKey.EncryptDanger(out, out, p, c, nb, ci.cipher)
 	//TODO: see above note on lock
 	//ci.writeLock.Unlock()
 	if err != nil {

@@ -5,7 +5,7 @@ go 1.18
 require (
 	github.com/anmitsu/go-shlex v0.0.0-20200514113438-38f4b401e2be
 	github.com/armon/go-radix v1.0.0
-	github.com/cipherloc/noise v1.0.0
+	github.com/cipherloc/noise v1.0.1
 	github.com/cyberdelia/go-metrics-graphite v0.0.0-20161219230853-39f87cc3b432
 	github.com/gogo/protobuf v1.3.2
 	github.com/google/gopacket v1.1.19

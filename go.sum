@@ -55,6 +55,8 @@ github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5P
 github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1/go.mod h1:Q3SI9o4m/ZMnBNeIyt5eFwwo7qiLfzFZmjNmxjkiQlU=
 github.com/cipherloc/noise v1.0.0 h1:q9ZvDz8hQW3FIBhb5OICr0rNORz5gjEI+wLWp2KC1rg=
 github.com/cipherloc/noise v1.0.0/go.mod h1:VOBBCw1oiCnJHWlJy11x6JBt8FjCfliCPRwh4xQNdJM=
+github.com/cipherloc/noise v1.0.1 h1:3QzJBI0b3IlwZPOKuR8SXMJ9MwwGHzhTs6/O/MRIZ14=
+github.com/cipherloc/noise v1.0.1/go.mod h1:VOBBCw1oiCnJHWlJy11x6JBt8FjCfliCPRwh4xQNdJM=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
 github.com/cyberdelia/go-metrics-graphite v0.0.0-20161219230853-39f87cc3b432 h1:M5QgkYacWj0Xs8MhpIK/5uwU02icXpEoSo9sM2aRCps=

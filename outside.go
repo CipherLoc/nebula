@@ -76,7 +76,7 @@ func (f *Interface) readOutsidePackets(addr *udp.Addr, via interface{}, out []by
 			// which will gracefully fail in the DecryptDanger call.
 			signedPayload := packet[:len(packet)-hostinfo.ConnectionState.dKey.Overhead()]
 			signatureValue := packet[len(packet)-hostinfo.ConnectionState.dKey.Overhead():]
-			out, err = hostinfo.ConnectionState.dKey.DecryptDanger(out, signedPayload, signatureValue, h.MessageCounter, nb)
+			out, err = hostinfo.ConnectionState.dKey.DecryptDanger(out, signedPayload, signatureValue, h.MessageCounter, nb, ci.cipher)
 			if err != nil {
 				return
 			}
@@ -357,7 +357,7 @@ func newPacket(data []byte, incoming bool, fp *firewall.Packet) error {
 
 func (f *Interface) decrypt(hostinfo *HostInfo, mc uint64, out []byte, packet []byte, h *header.H, nb []byte) ([]byte, error) {
 	var err error
-	out, err = hostinfo.ConnectionState.dKey.DecryptDanger(out, packet[:header.Len], packet[header.Len:], mc, nb)
+	out, err = hostinfo.ConnectionState.dKey.DecryptDanger(out, packet[:header.Len], packet[header.Len:], mc, nb, hostinfo.ConnectionState.cipher)
 	if err != nil {
 		return nil, err
 	}
@@ -374,7 +374,7 @@ func (f *Interface) decrypt(hostinfo *HostInfo, mc uint64, out []byte, packet []
 func (f *Interface) decryptToTun(hostinfo *HostInfo, messageCounter uint64, out []byte, packet []byte, fwPacket *firewall.Packet, nb []byte, q int, localCache firewall.ConntrackCache) {
 	var err error
 
-	out, err = hostinfo.ConnectionState.dKey.DecryptDanger(out, packet[:header.Len], packet[header.Len:], messageCounter, nb)
+	out, err = hostinfo.ConnectionState.dKey.DecryptDanger(out, packet[:header.Len], packet[header.Len:], messageCounter, nb, hostinfo.ConnectionState.cipher)
 	if err != nil {
 		hostinfo.logger(f.l).WithError(err).Error("Failed to decrypt packet")
 		//TODO: maybe after build 64 is out? 06/14/2018 - NB

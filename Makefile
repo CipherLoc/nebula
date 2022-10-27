@@ -32,18 +32,18 @@ LDFLAGS = -X main.Build=$(BUILD_NUMBER)
 LDFLAGS=
 
 ALL_LINUX = linux-amd64 \
-	linux-386 \
-	linux-ppc64le \
-	linux-arm-5 \
-	linux-arm-6 \
-	linux-arm-7 \
-	linux-arm64 \
-	linux-mips \
-	linux-mipsle \
-	linux-mips64 \
-	linux-mips64le \
-	linux-mips-softfloat \
-	linux-riscv64
+	# linux-386 \
+	# linux-ppc64le \
+	# linux-arm-5 \
+	# linux-arm-6 \
+	# linux-arm-7 \
+	# linux-arm64 \
+	# linux-mips \
+	# linux-mipsle \
+	# linux-mips64 \
+	# linux-mips64le \
+	# linux-mips-softfloat \
+	# linux-riscv64
 
 ALL = $(ALL_LINUX) \
 	darwin-amd64 \

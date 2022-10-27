@@ -25,19 +25,22 @@ type ConnectionState struct {
 	queueLock            sync.Mutex
 	writeLock            sync.Mutex
 	ready                bool
+	cipher               string
 }
 
 func (f *Interface) newConnectionState(l *logrus.Logger, initiator bool, pattern noise.HandshakePattern, psk []byte, pskStage int) *ConnectionState {
 	// OVERRIDE FOR FIPS
+	// defaults to AES-GCM
+	// FIPS overrides encryptions in the EncryptDanger and DecryptDanger
 	cs := noise.NewCipherSuite(noise.DH25519, noise.CipherAESGCM, noise.HashSHA256)
 
 	if f.cipher == "chachapoly" {
 		cs = noise.NewCipherSuite(noise.DH25519, noise.CipherChaChaPoly, noise.HashSHA256)
 	}
 
-	if f.cipher == "fips-aes" {
-		cs = noise.NewCipherSuite(noise.DH25519, noise.CipherAESGCMFIPS, noise.HashSHA256)
-	}
+	// if f.cipher == "fips-aes" {
+	// 	cs = noise.NewCipherSuite(noise.DH25519, noise.CipherAESGCMFIPS, noise.HashSHA256)
+	// }
 
 	curCertState := f.certState
 	static := noise.DHKey{Private: curCertState.privateKey, Public: curCertState.publicKey}
@@ -67,6 +70,7 @@ func (f *Interface) newConnectionState(l *logrus.Logger, initiator bool, pattern
 		window:    b,
 		ready:     false,
 		certState: curCertState,
+		cipher:    f.cipher,
 	}
 
 	return ci
