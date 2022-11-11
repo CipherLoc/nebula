@@ -5,6 +5,11 @@ export GO111MODULE
 CGO_ENABLED = 1
 export CGO_ENABLED
 
+FIPS_TAG=
+ifeq ($(FIPS),1)
+  FIPS_TAG=--tags=fips
+endif
+
 # Set up OS specific bits
 ifeq ($(OS),Windows_NT)
 	#TODO: we should be able to ditch awk as well
@@ -93,7 +98,7 @@ bin-freebsd: build/freebsd-amd64/nebula build/freebsd-amd64/nebula-cert
 	mv $? .
 
 bin:
-	go build $(BUILD_ARGS) -ldflags "$(LDFLAGS)" -o ./nebula${NEBULA_CMD_SUFFIX} ${NEBULA_CMD_PATH}
+	go build $(BUILD_ARGS) -ldflags "$(LDFLAGS)" $(FIPS_TAG) -o ./nebula${NEBULA_CMD_SUFFIX} ${NEBULA_CMD_PATH}
 	go build $(BUILD_ARGS) -ldflags "$(LDFLAGS)" -o ./nebula-cert${NEBULA_CMD_SUFFIX} ./cmd/nebula-cert
 
 install:
