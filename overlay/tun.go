@@ -27,6 +27,16 @@ func NewDeviceFromConfig(c *config.C, l *logrus.Logger, tunCidr *net.IPNet, fd *
 		tun := newDisabledTun(tunCidr, c.GetInt("tun.tx_queue", 500), c.GetBool("stats.message_metrics", false), l)
 		return tun, nil
 
+	case c.GetBool("tun.netstack", false):
+		return newNetstackDevice(
+			l,
+			tunCidr,
+			c.GetInt("tun.mtu", DefaultMTU),
+			routes,
+			c.GetBool("netstack.nat_enabled", false),
+			c.GetBool("netstack.socks_enabled", false),
+		)
+
 	case fd != nil:
 		return newTunFromFd(
 			l,
