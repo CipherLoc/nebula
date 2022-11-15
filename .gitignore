@@ -12,4 +12,5 @@
 /*.tar.gz
 /e2e/mermaid/
 /lib
+/libs
 .vscode
