@@ -63,6 +63,8 @@ type Firewall struct {
 	metricTCPRTT    metrics.Histogram
 	incomingMetrics firewallMetrics
 	outgoingMetrics firewallMetrics
+	incomingHooks   Hook
+	outgoingHooks   Hook
 
 	l *logrus.Logger
 }
@@ -378,6 +380,7 @@ func (f *Firewall) Drop(packet []byte, fp firewall.Packet, incoming bool, h *Hos
 
 	// We now know which firewall table to check against
 	if !table.match(fp, incoming, h.ConnectionState.peerCert, caPool) {
+		f.hooks(incoming).FirewallDrop(fp)
 		f.metrics(incoming).droppedNoRule.Inc(1)
 		return ErrNoMatchingRule
 	}
@@ -393,6 +396,14 @@ func (f *Firewall) metrics(incoming bool) firewallMetrics {
 		return f.incomingMetrics
 	} else {
 		return f.outgoingMetrics
+	}
+}
+
+func (f *Firewall) hooks(incoming bool) Hook {
+	if incoming {
+		return f.incomingHooks
+	} else {
+		return f.outgoingHooks
 	}
 }
 
