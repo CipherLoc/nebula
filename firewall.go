@@ -380,7 +380,10 @@ func (f *Firewall) Drop(packet []byte, fp firewall.Packet, incoming bool, h *Hos
 
 	// We now know which firewall table to check against
 	if !table.match(fp, incoming, h.ConnectionState.peerCert, caPool) {
-		f.hooks(incoming).FirewallDrop(fp)
+		hook := f.hooks(incoming)
+		if hook != nil {
+			hook.FirewallDrop(fp)
+		}
 		f.metrics(incoming).droppedNoRule.Inc(1)
 		return ErrNoMatchingRule
 	}
