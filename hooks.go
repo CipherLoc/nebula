@@ -1,6 +1,7 @@
 package nebula
 
 import (
+	"sync"
 	"github.com/slackhq/nebula/firewall"
 	"github.com/slackhq/nebula/iputil"
 )
@@ -20,6 +21,7 @@ type DropData struct {
  */
 type FirewallIncomingHook struct {
 	Drops map[DropData]bool
+	Lock sync.Mutex
 }
 
 func NewFirewallIncomingHook() *FirewallIncomingHook {
@@ -29,6 +31,24 @@ func NewFirewallIncomingHook() *FirewallIncomingHook {
 }
 
 func (hook *FirewallIncomingHook) FirewallDrop(packet firewall.Packet){
-	data := DropData{IP: packet.RemoteIP, Port: packet.LocalPort, Protocol: packet.Protocol}
-	hook.Drops[data] = true
+	hook.Lock.Lock()
+	defer hook.Lock.Unlock()
+	if len(hook.Drops) < 10000 {
+		data := DropData{IP: packet.RemoteIP, Port: packet.LocalPort, Protocol: packet.Protocol}
+		hook.Drops[data] = true
+	}
+}
+
+func (hook *FirewallIncomingHook) GetAndClear() []DropData {
+	hook.Lock.Lock()
+	defer hook.Lock.Unlock()
+	var out []DropData
+	
+	for key, _ := range hook.Drops {
+		out = append(out, key)
+	}
+
+	hook.Drops = make(map[DropData]bool)
+
+	return out
 }

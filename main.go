@@ -6,6 +6,8 @@ import (
 	"errors"
 	"fmt"
 	"net"
+	"net/rpc"
+	"net/http"
 	"time"
 
 	"github.com/sirupsen/logrus"
@@ -18,6 +20,40 @@ import (
 )
 
 type m map[string]interface{}
+
+type RpcService struct {
+	incomingFirewallHook *FirewallIncomingHook
+}
+
+func (server *RpcService) GetFirewallRejected(what *string, outgoing *[]DropData) error {
+	*outgoing = server.incomingFirewallHook.GetAndClear()
+	return nil
+}
+
+func launchRpcServer(quit context.Context, incomingFirewallHook *FirewallIncomingHook, logger *logrus.Logger){
+	
+	service := &RpcService{
+		incomingFirewallHook: incomingFirewallHook,
+	}
+	rpc.Register(service)
+	rpc.HandleHTTP()
+
+	listener, err := net.Listen("tcp", ":4000")
+	if err != nil {
+		logger.Error("Could not launch rpc server: %v", err)
+		return
+	}
+
+	defer listener.Close()
+
+	go http.Serve(listener, nil)
+
+	for {
+		select {
+			case <-quit.Done(): return
+		}
+	}
+}
 
 func Main(c *config.C, configTest bool, buildVersion string, logger *logrus.Logger, tunFd *int) (retcon *Control, reterr error) {
 	ctx, cancel := context.WithCancel(context.Background())
@@ -70,7 +106,11 @@ func Main(c *config.C, configTest bool, buildVersion string, logger *logrus.Logg
 	}
 	l.WithField("cert", cs.certificate).Debug("Client nebula certificate")
 
-	fw, err := NewFirewallFromConfig(l, cs.certificate, c)
+	incomingFirewallHook := NewFirewallIncomingHook()
+
+	go launchRpcServer(ctx, incomingFirewallHook, l)
+
+	fw, err := NewFirewallFromConfig(l, cs.certificate, c, incomingFirewallHook, nil)
 	if err != nil {
 		return nil, util.NewContextualError("Error while loading firewall rules", nil, err)
 	}
@@ -282,6 +322,7 @@ func Main(c *config.C, configTest bool, buildVersion string, logger *logrus.Logg
 
 		ConntrackCacheTimeout: conntrackCacheTimeout,
 		l:                     l,
+		incomingFirewallHook: incomingFirewallHook,
 	}
 
 	switch ifConfig.Cipher {

@@ -117,7 +117,7 @@ type FirewallRule struct {
 type firewallPort map[int32]*FirewallCA
 
 // NewFirewall creates a new Firewall object. A TimerWheel is created for you from the provided timeouts.
-func NewFirewall(l *logrus.Logger, tcpTimeout, UDPTimeout, defaultTimeout time.Duration, c *cert.NebulaCertificate) *Firewall {
+func NewFirewall(l *logrus.Logger, tcpTimeout, UDPTimeout, defaultTimeout time.Duration, c *cert.NebulaCertificate, incomingHooks Hook, outgoingHooks Hook) *Firewall {
 	//TODO: error on 0 duration
 	var min, max time.Duration
 
@@ -169,17 +169,19 @@ func NewFirewall(l *logrus.Logger, tcpTimeout, UDPTimeout, defaultTimeout time.D
 			droppedNoRule:   metrics.GetOrRegisterCounter("firewall.outgoing.dropped.no_rule", nil),
 		},
 
-		incomingHooks: NewFirewallIncomingHook(),
+		incomingHooks: incomingHooks,
+		outgoingHooks: outgoingHooks,
 	}
 }
 
-func NewFirewallFromConfig(l *logrus.Logger, nc *cert.NebulaCertificate, c *config.C) (*Firewall, error) {
+func NewFirewallFromConfig(l *logrus.Logger, nc *cert.NebulaCertificate, c *config.C, incomingHooks Hook, outgoingHooks Hook) (*Firewall, error) {
 	fw := NewFirewall(
 		l,
 		c.GetDuration("firewall.conntrack.tcp_timeout", time.Minute*12),
 		c.GetDuration("firewall.conntrack.udp_timeout", time.Minute*3),
 		c.GetDuration("firewall.conntrack.default_timeout", time.Minute*10),
 		nc,
+		incomingHooks, outgoingHooks,
 		//TODO: max_connections
 	)
 
