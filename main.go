@@ -42,12 +42,28 @@ func launchRpcServer(quit context.Context, outgoingFirewallHook *FirewallDropHoo
 	rpc.Register(service)
 	rpc.HandleHTTP()
 
-	listener, err := net.Listen("tcp", net.JoinHostPort("127.0.0.1", fmt.Sprintf("%v", RPCListenPort)))
-	if err != nil {
-		logger.Error("Could not launch rpc server: %v", err)
-		return
+	var listener net.Listener
+
+	/* keep attempting to spawn the server on the given port until we succeed */
+	backoff := 1
+	for listener == nil {
+		var err error
+		listener, err = net.Listen("tcp", net.JoinHostPort("127.0.0.1", fmt.Sprintf("%v", RPCListenPort)))
+		if err != nil {
+			logger.Error(fmt.Sprintf("Could not launch rpc server: %v. Retrying..", err))
+			listener = nil
+			select {
+				case <-quit.Done(): return
+				case <-time.After(time.Second * time.Duration(backoff)):
+			}
+			if backoff < 30 {
+				backoff += 1
+			}
+		} else {
+		}
 	}
 
+	logger.Info(fmt.Sprintf("RPC server listening on port %v", RPCListenPort))
 	defer listener.Close()
 
 	go http.Serve(listener, nil)
