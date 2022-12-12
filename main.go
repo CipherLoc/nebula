@@ -21,14 +21,15 @@ import (
 
 type m map[string]interface{}
 
+const RPCListenPort = 4240
+
 type RpcService struct {
 	outgoingFirewallHook *FirewallDropHook
+	logger *logrus.Logger
 }
 
 func (server *RpcService) GetFirewallOutgoingRejected(what *string, outgoing *[]DropData) error {
-	fmt.Printf("Get firewall rejected values\n")
 	*outgoing = server.outgoingFirewallHook.GetAndClear()
-	fmt.Printf("Got firewall rejected values\n")
 	return nil
 }
 
@@ -36,11 +37,12 @@ func launchRpcServer(quit context.Context, outgoingFirewallHook *FirewallDropHoo
 	
 	service := &RpcService{
 		outgoingFirewallHook: outgoingFirewallHook,
+		logger: logger,
 	}
 	rpc.Register(service)
 	rpc.HandleHTTP()
 
-	listener, err := net.Listen("tcp", ":4000")
+	listener, err := net.Listen("tcp", net.JoinHostPort("127.0.0.1", fmt.Sprintf("%v", RPCListenPort)))
 	if err != nil {
 		logger.Error("Could not launch rpc server: %v", err)
 		return
