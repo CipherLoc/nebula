@@ -22,18 +22,20 @@ import (
 type m map[string]interface{}
 
 type RpcService struct {
-	incomingFirewallHook *FirewallIncomingHook
+	outgoingFirewallHook *FirewallDropHook
 }
 
-func (server *RpcService) GetFirewallRejected(what *string, outgoing *[]DropData) error {
-	*outgoing = server.incomingFirewallHook.GetAndClear()
+func (server *RpcService) GetFirewallOutgoingRejected(what *string, outgoing *[]DropData) error {
+	fmt.Printf("Get firewall rejected values\n")
+	*outgoing = server.outgoingFirewallHook.GetAndClear()
+	fmt.Printf("Got firewall rejected values\n")
 	return nil
 }
 
-func launchRpcServer(quit context.Context, incomingFirewallHook *FirewallIncomingHook, logger *logrus.Logger){
+func launchRpcServer(quit context.Context, outgoingFirewallHook *FirewallDropHook, logger *logrus.Logger){
 	
 	service := &RpcService{
-		incomingFirewallHook: incomingFirewallHook,
+		outgoingFirewallHook: outgoingFirewallHook,
 	}
 	rpc.Register(service)
 	rpc.HandleHTTP()
@@ -106,11 +108,11 @@ func Main(c *config.C, configTest bool, buildVersion string, logger *logrus.Logg
 	}
 	l.WithField("cert", cs.certificate).Debug("Client nebula certificate")
 
-	incomingFirewallHook := NewFirewallIncomingHook()
+	outgoingFirewallHook := NewFirewallDropHook()
 
-	go launchRpcServer(ctx, incomingFirewallHook, l)
+	go launchRpcServer(ctx, outgoingFirewallHook, l)
 
-	fw, err := NewFirewallFromConfig(l, cs.certificate, c, incomingFirewallHook, nil)
+	fw, err := NewFirewallFromConfig(l, cs.certificate, c, nil, outgoingFirewallHook)
 	if err != nil {
 		return nil, util.NewContextualError("Error while loading firewall rules", nil, err)
 	}
@@ -322,7 +324,7 @@ func Main(c *config.C, configTest bool, buildVersion string, logger *logrus.Logg
 
 		ConntrackCacheTimeout: conntrackCacheTimeout,
 		l:                     l,
-		incomingFirewallHook: incomingFirewallHook,
+		outgoingFirewallHook: outgoingFirewallHook,
 	}
 
 	switch ifConfig.Cipher {

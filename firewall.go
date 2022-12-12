@@ -352,6 +352,8 @@ var ErrNoMatchingRule = errors.New("no matching rule in firewall table")
 // Drop returns an error if the packet should be dropped, explaining why. It
 // returns nil if the packet should not be dropped.
 func (f *Firewall) Drop(packet []byte, fp firewall.Packet, incoming bool, h *HostInfo, caPool *cert.NebulaCAPool, localCache firewall.ConntrackCache) error {
+	h.logger(f.l).Info(fmt.Sprintf("Drop a packet? %v", fp.RemotePort))
+
 	// Check if we spoke to this tuple, if we did then allow this packet
 	if f.inConns(packet, fp, incoming, h, caPool, localCache) {
 		return nil
@@ -384,6 +386,7 @@ func (f *Firewall) Drop(packet []byte, fp firewall.Packet, incoming bool, h *Hos
 
 	// We now know which firewall table to check against
 	if !table.match(fp, incoming, h.ConnectionState.peerCert, caPool) {
+		h.logger(f.l).Info(fmt.Sprintf("Dropping incoming=%v packet on port %v", incoming, fp.RemotePort))
 		hook := f.hooks(incoming)
 		if hook != nil {
 			hook.FirewallDrop(fp)
