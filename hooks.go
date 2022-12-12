@@ -16,10 +16,10 @@ type DropData struct {
 	RemoteIP iputil.VpnIp
 	LocalPort uint16
 	RemotePort uint16
-	Protocol uint8
+	Protocol uint8 // from firewall/packet.go
 }
 
-/* track a single instance of (ip, port, protocol)
+/* tracks a dropped packet for single instance of (local ip, local port, remote ip, remote port, protocol)
  */
 type FirewallDropHook struct {
 	Drops map[DropData]bool
@@ -32,6 +32,8 @@ func NewFirewallDropHook() *FirewallDropHook {
 	}
 }
 
+/* Add a dropped packet to the set. The packet information is hashed so that we don't store the same information twice.
+ */
 func (hook *FirewallDropHook) FirewallDrop(packet firewall.Packet){
 	hook.Lock.Lock()
 	defer hook.Lock.Unlock()
@@ -41,6 +43,7 @@ func (hook *FirewallDropHook) FirewallDrop(packet firewall.Packet){
 	}
 }
 
+/* Get all current dropped packet information, and reset the packet drop collection bucket */
 func (hook *FirewallDropHook) GetAndClear() []DropData {
 	hook.Lock.Lock()
 	defer hook.Lock.Unlock()
