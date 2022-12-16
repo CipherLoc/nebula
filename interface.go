@@ -46,6 +46,7 @@ type InterfaceConfig struct {
 
 	ConntrackCacheTimeout time.Duration
 	l                     *logrus.Logger
+	incomingFirewallHook Hook
 	outgoingFirewallHook Hook
 }
 
@@ -88,6 +89,7 @@ type Interface struct {
 
 	l *logrus.Logger
 
+	incomingFirewallHook Hook
 	outgoingFirewallHook Hook
 }
 
@@ -173,6 +175,7 @@ func NewInterface(ctx context.Context, c *InterfaceConfig) (*Interface, error) {
 		},
 
 		l: c.l,
+		incomingFirewallHook: c.incomingFirewallHook,
 		outgoingFirewallHook: c.outgoingFirewallHook,
 	}
 
@@ -320,7 +323,7 @@ func (f *Interface) reloadFirewall(c *config.C) {
 		return
 	}
 
-	fw, err := NewFirewallFromConfig(f.l, f.certState.certificate, c, nil, f.outgoingFirewallHook)
+	fw, err := NewFirewallFromConfig(f.l, f.certState.certificate, c, f.incomingFirewallHook, f.outgoingFirewallHook)
 	if err != nil {
 		f.l.WithError(err).Error("Error while creating firewall during reload")
 		return

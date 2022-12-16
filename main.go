@@ -24,8 +24,14 @@ type m map[string]interface{}
 const RPCListenPort = 4240
 
 type RpcService struct {
+	incomingFirewallHook *FirewallDropHook
 	outgoingFirewallHook *FirewallDropHook
 	logger *logrus.Logger
+}
+
+func (server *RpcService) GetFirewallIncomingRejected(what *string, outgoing *[]DropData) error {
+	*outgoing = server.incomingFirewallHook.GetAndClear()
+	return nil
 }
 
 func (server *RpcService) GetFirewallOutgoingRejected(what *string, outgoing *[]DropData) error {
@@ -33,9 +39,10 @@ func (server *RpcService) GetFirewallOutgoingRejected(what *string, outgoing *[]
 	return nil
 }
 
-func launchRpcServer(quit context.Context, outgoingFirewallHook *FirewallDropHook, logger *logrus.Logger){
+func launchRpcServer(quit context.Context, incomingFirewallHook *FirewallDropHook, outgoingFirewallHook *FirewallDropHook, logger *logrus.Logger){
 	
 	service := &RpcService{
+		incomingFirewallHook: incomingFirewallHook,
 		outgoingFirewallHook: outgoingFirewallHook,
 		logger: logger,
 	}
@@ -127,8 +134,9 @@ func Main(c *config.C, configTest bool, buildVersion string, logger *logrus.Logg
 	l.WithField("cert", cs.certificate).Debug("Client nebula certificate")
 
 	outgoingFirewallHook := NewFirewallDropHook()
+	incomingFirewallHook := NewFirewallDropHook()
 
-	go launchRpcServer(ctx, outgoingFirewallHook, l)
+	go launchRpcServer(ctx, incomingFirewallHook, outgoingFirewallHook, l)
 
 	fw, err := NewFirewallFromConfig(l, cs.certificate, c, nil, outgoingFirewallHook)
 	if err != nil {
