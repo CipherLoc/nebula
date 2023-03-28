@@ -53,8 +53,8 @@ github.com/cespare/xxhash/v2 v2.1.2/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XL
 github.com/chzyer/logex v1.1.10/go.mod h1:+Ywpsq7O8HXn0nuIou7OrIPyXbp3wmkHB+jjWRnGsAI=
 github.com/chzyer/readline v0.0.0-20180603132655-2972be24d48e/go.mod h1:nSuG5e5PlCu98SY8svDHJxuZscDgtXS6KTTbou5AhLI=
 github.com/chzyer/test v0.0.0-20180213035817-a1ea475d72b1/go.mod h1:Q3SI9o4m/ZMnBNeIyt5eFwwo7qiLfzFZmjNmxjkiQlU=
-github.com/cipherloc/noise v1.2.0 h1:apteUkR+1CGYks5rPAgIRI1vW6Cc5/Y9hEoW+rg2ItU=
-github.com/cipherloc/noise v1.2.0/go.mod h1:ijPKr2wEWftfxsgnXP0fC+/GCCnzVRfqX+c8gtRtvYc=
+github.com/sidechannelinc/noise v1.2.0 h1:apteUkR+1CGYks5rPAgIRI1vW6Cc5/Y9hEoW+rg2ItU=
+github.com/sidechannelinc/noise v1.2.0/go.mod h1:ijPKr2wEWftfxsgnXP0fC+/GCCnzVRfqX+c8gtRtvYc=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
 github.com/cyberdelia/go-metrics-graphite v0.0.0-20161219230853-39f87cc3b432 h1:M5QgkYacWj0Xs8MhpIK/5uwU02icXpEoSo9sM2aRCps=
