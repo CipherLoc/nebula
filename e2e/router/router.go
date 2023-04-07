@@ -18,10 +18,10 @@ import (
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
-	"github.com/sidechannelinc/nebula"
-	"github.com/sidechannelinc/nebula/header"
-	"github.com/sidechannelinc/nebula/iputil"
-	"github.com/sidechannelinc/nebula/udp"
+	"github.com/slackhq/nebula"
+	"github.com/slackhq/nebula/header"
+	"github.com/slackhq/nebula/iputil"
+	"github.com/slackhq/nebula/udp"
 )
 
 type R struct {

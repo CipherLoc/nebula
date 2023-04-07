@@ -12,13 +12,13 @@ import (
 	"time"
 
 	"github.com/rcrowley/go-metrics"
-	"github.com/sidechannelinc/nebula/cert"
-	"github.com/sidechannelinc/nebula/config"
-	"github.com/sidechannelinc/nebula/firewall"
-	"github.com/sidechannelinc/nebula/iputil"
-	"github.com/sidechannelinc/nebula/overlay"
-	"github.com/sidechannelinc/nebula/udp"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/cert"
+	"github.com/slackhq/nebula/config"
+	"github.com/slackhq/nebula/firewall"
+	"github.com/slackhq/nebula/iputil"
+	"github.com/slackhq/nebula/overlay"
+	"github.com/slackhq/nebula/udp"
 )
 
 const mtu = 9001

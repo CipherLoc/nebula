@@ -11,8 +11,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sidechannelinc/nebula/cert"
 	"github.com/skip2/go-qrcode"
+	"github.com/slackhq/nebula/cert"
 	"golang.org/x/crypto/curve25519"
 )
 

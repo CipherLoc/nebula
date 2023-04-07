@@ -3,9 +3,9 @@ package overlay
 import (
 	"net"
 
-	"github.com/sidechannelinc/nebula/config"
-	"github.com/sidechannelinc/nebula/util"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/config"
+	"github.com/slackhq/nebula/util"
 )
 
 const DefaultMTU = 1300

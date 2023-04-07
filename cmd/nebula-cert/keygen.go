@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/sidechannelinc/nebula/cert"
+	"github.com/slackhq/nebula/cert"
 )
 
 type keygenFlags struct {

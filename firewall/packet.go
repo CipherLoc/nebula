@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/slackhq/nebula/iputil"
 )
 
 type m map[string]interface{}

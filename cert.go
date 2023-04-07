@@ -7,9 +7,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sidechannelinc/nebula/cert"
-	"github.com/sidechannelinc/nebula/config"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/cert"
+	"github.com/slackhq/nebula/config"
 )
 
 type CertState struct {

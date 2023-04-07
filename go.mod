@@ -1,4 +1,4 @@
-module github.com/sidechannelinc/nebula
+module github.com/slackhq/nebula
 
 go 1.18
 

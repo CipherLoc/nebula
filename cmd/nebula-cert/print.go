@@ -9,8 +9,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/sidechannelinc/nebula/cert"
 	"github.com/skip2/go-qrcode"
+	"github.com/slackhq/nebula/cert"
 )
 
 type printFlags struct {

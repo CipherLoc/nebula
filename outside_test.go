@@ -4,8 +4,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/sidechannelinc/nebula/firewall"
-	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/slackhq/nebula/firewall"
+	"github.com/slackhq/nebula/iputil"
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/net/ipv4"
 )

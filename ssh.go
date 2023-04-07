@@ -13,12 +13,12 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/sidechannelinc/nebula/config"
-	"github.com/sidechannelinc/nebula/header"
-	"github.com/sidechannelinc/nebula/iputil"
-	"github.com/sidechannelinc/nebula/sshd"
-	"github.com/sidechannelinc/nebula/udp"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/config"
+	"github.com/slackhq/nebula/header"
+	"github.com/slackhq/nebula/iputil"
+	"github.com/slackhq/nebula/sshd"
+	"github.com/slackhq/nebula/udp"
 )
 
 type sshListHostMapFlags struct {

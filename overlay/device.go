@@ -4,7 +4,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/slackhq/nebula/iputil"
 )
 
 type Device interface {

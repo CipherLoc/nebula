@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 
 	"github.com/kardianos/service"
-	"github.com/sidechannelinc/nebula"
-	"github.com/sidechannelinc/nebula/config"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula"
+	"github.com/slackhq/nebula/config"
 )
 
 var logger service.Logger

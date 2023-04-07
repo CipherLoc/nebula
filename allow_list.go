@@ -5,9 +5,9 @@ import (
 	"net"
 	"regexp"
 
-	"github.com/sidechannelinc/nebula/cidr"
-	"github.com/sidechannelinc/nebula/config"
-	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/slackhq/nebula/cidr"
+	"github.com/slackhq/nebula/config"
+	"github.com/slackhq/nebula/iputil"
 )
 
 type AllowList struct {

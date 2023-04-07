@@ -8,8 +8,8 @@ import (
 	"strings"
 
 	"github.com/rcrowley/go-metrics"
-	"github.com/sidechannelinc/nebula/iputil"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/iputil"
 )
 
 type disabledTun struct {

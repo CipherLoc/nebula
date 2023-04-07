@@ -8,12 +8,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/sidechannelinc/nebula/config"
-	"github.com/sidechannelinc/nebula/overlay"
-	"github.com/sidechannelinc/nebula/sshd"
-	"github.com/sidechannelinc/nebula/udp"
-	"github.com/sidechannelinc/nebula/util"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/config"
+	"github.com/slackhq/nebula/overlay"
+	"github.com/slackhq/nebula/sshd"
+	"github.com/slackhq/nebula/udp"
+	"github.com/slackhq/nebula/util"
 	"gopkg.in/yaml.v2"
 )
 

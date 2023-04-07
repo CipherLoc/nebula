@@ -13,9 +13,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/sidechannelinc/nebula/cidr"
-	"github.com/sidechannelinc/nebula/iputil"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/cidr"
+	"github.com/slackhq/nebula/iputil"
 )
 
 var deviceNameRE = regexp.MustCompile(`^tun[0-9]+$`)

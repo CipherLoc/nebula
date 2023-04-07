@@ -4,8 +4,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/sidechannelinc/nebula/config"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/config"
 )
 
 type Punchy struct {

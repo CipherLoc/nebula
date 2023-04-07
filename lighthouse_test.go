@@ -5,11 +5,11 @@ import (
 	"net"
 	"testing"
 
-	"github.com/sidechannelinc/nebula/config"
-	"github.com/sidechannelinc/nebula/header"
-	"github.com/sidechannelinc/nebula/iputil"
-	"github.com/sidechannelinc/nebula/test"
-	"github.com/sidechannelinc/nebula/udp"
+	"github.com/slackhq/nebula/config"
+	"github.com/slackhq/nebula/header"
+	"github.com/slackhq/nebula/iputil"
+	"github.com/slackhq/nebula/test"
+	"github.com/slackhq/nebula/udp"
 	"github.com/stretchr/testify/assert"
 )
 

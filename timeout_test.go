@@ -4,7 +4,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sidechannelinc/nebula/firewall"
+	"github.com/slackhq/nebula/firewall"
 	"github.com/stretchr/testify/assert"
 )
 

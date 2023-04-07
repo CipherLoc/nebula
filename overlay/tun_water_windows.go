@@ -7,9 +7,9 @@ import (
 	"os/exec"
 	"strconv"
 
-	"github.com/sidechannelinc/nebula/cidr"
-	"github.com/sidechannelinc/nebula/iputil"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/cidr"
+	"github.com/slackhq/nebula/iputil"
 	"github.com/songgao/water"
 )
 

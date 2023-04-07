@@ -6,11 +6,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sidechannelinc/nebula/cert"
-	"github.com/sidechannelinc/nebula/iputil"
-	"github.com/sidechannelinc/nebula/test"
-	"github.com/sidechannelinc/nebula/udp"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/cert"
+	"github.com/slackhq/nebula/iputil"
+	"github.com/slackhq/nebula/test"
+	"github.com/slackhq/nebula/udp"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -4,8 +4,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sidechannelinc/nebula/config"
-	"github.com/sidechannelinc/nebula/test"
+	"github.com/slackhq/nebula/config"
+	"github.com/slackhq/nebula/test"
 	"github.com/stretchr/testify/assert"
 )
 

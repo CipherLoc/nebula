@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/sidechannelinc/nebula/test"
+	"github.com/slackhq/nebula/test"
 	"github.com/stretchr/testify/assert"
 )
 

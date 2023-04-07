@@ -3,7 +3,7 @@ package nebula
 import (
 	"time"
 
-	"github.com/sidechannelinc/nebula/firewall"
+	"github.com/slackhq/nebula/firewall"
 )
 
 // How many timer objects should be cached

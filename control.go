@@ -8,11 +8,11 @@ import (
 	"sync/atomic"
 	"syscall"
 
-	"github.com/sidechannelinc/nebula/cert"
-	"github.com/sidechannelinc/nebula/header"
-	"github.com/sidechannelinc/nebula/iputil"
-	"github.com/sidechannelinc/nebula/udp"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/cert"
+	"github.com/slackhq/nebula/header"
+	"github.com/slackhq/nebula/iputil"
+	"github.com/slackhq/nebula/udp"
 )
 
 // Every interaction here needs to take extra care to copy memory and not return or use arguments "as is" when touching

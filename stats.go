@@ -14,8 +14,8 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"github.com/rcrowley/go-metrics"
-	"github.com/sidechannelinc/nebula/config"
 	"github.com/sirupsen/logrus"
+	"github.com/slackhq/nebula/config"
 )
 
 // startStats initializes stats from config. On success, if any futher work

@@ -1,8 +1,8 @@
 package nebula
 
 import (
-	"github.com/sidechannelinc/nebula/header"
-	"github.com/sidechannelinc/nebula/udp"
+	"github.com/slackhq/nebula/header"
+	"github.com/slackhq/nebula/udp"
 )
 
 func HandleIncomingHandshake(f *Interface, addr *udp.Addr, via interface{}, packet []byte, h *header.H, hostinfo *HostInfo) {

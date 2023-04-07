@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/sidechannelinc/nebula/cert"
+	"github.com/slackhq/nebula/cert"
 )
 
 type verifyFlags struct {
