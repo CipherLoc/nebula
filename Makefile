@@ -4,7 +4,7 @@ GO111MODULE = on
 export GO111MODULE
 CGO_ENABLED = 1
 export CGO_ENABLED
-FIPS = 1
+FIPS = 0
 export FIPS
 
 FIPS_TAG=

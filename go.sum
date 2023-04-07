@@ -217,6 +217,8 @@ github.com/sidechannelinc/noise v1.3.0 h1:JHfqXgpnOxgV+jfGwkM9I98HfqmP9x8iQBr3aK
 github.com/sidechannelinc/noise v1.3.0/go.mod h1:wlkYn70sYp/SLFICcvSYzmgUqozkZ0LnCG921Q3FJtM=
 github.com/sidechannelinc/noise v1.3.1 h1:0aDcNQMgEqM4RhOHpOL28yEGZmgVqiF5xJjK8ea2fJM=
 github.com/sidechannelinc/noise v1.3.1/go.mod h1:wlkYn70sYp/SLFICcvSYzmgUqozkZ0LnCG921Q3FJtM=
+github.com/sidechannelinc/noise v1.3.2 h1:7T2C7SlghOZ+DNCxyA4t0Y09v7w+kDNFMPFbYX4pOJM=
+github.com/sidechannelinc/noise v1.3.2/go.mod h1:wlkYn70sYp/SLFICcvSYzmgUqozkZ0LnCG921Q3FJtM=
 github.com/sirupsen/logrus v1.2.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=
 github.com/sirupsen/logrus v1.4.2/go.mod h1:tLMulIdttU9McNUspp0xgXVQah82FyeX6MwdIuYE2rE=
 github.com/sirupsen/logrus v1.6.0/go.mod h1:7uNnSEd1DgxDLC74fIahvMZmmYsHGZGEOFrfsX/uA88=
