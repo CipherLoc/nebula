@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/rcrowley/go-metrics"
-	"github.com/slackhq/nebula/header"
+	"github.com/sidechannelinc/nebula/header"
 )
 
 //TODO: this can probably move into the header package

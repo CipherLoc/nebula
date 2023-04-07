@@ -14,7 +14,7 @@ require (
 	github.com/nbrownus/go-metrics-prometheus v0.0.0-20210712211119-974a6260965f
 	github.com/prometheus/client_golang v1.14.0
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475
-	github.com/sidechannelinc/noise v1.3.0
+	github.com/sidechannelinc/noise v1.3.1
 	github.com/sirupsen/logrus v1.9.0
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 	github.com/songgao/water v0.0.0-20200317203138-2b4b6d7c09d8
@@ -30,10 +30,7 @@ require (
 	gopkg.in/yaml.v2 v2.4.0
 )
 
-require (
-	github.com/slackhq/nebula v1.6.1
-	golang.zx2c4.com/wireguard v0.0.0-20220920152132-bb719d3a6e2c
-)
+require golang.zx2c4.com/wireguard v0.0.0-20220920152132-bb719d3a6e2c
 
 require (
 	github.com/beorn7/perks v1.0.1 // indirect

@@ -5,15 +5,16 @@ package udp
 
 import (
 	"errors"
-	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/config"
-	"github.com/slackhq/nebula/firewall"
-	"github.com/slackhq/nebula/header"
 	"io"
 	"sync"
 	"sync/atomic"
 	"syscall"
 	"unsafe"
+
+	"github.com/sidechannelinc/nebula/config"
+	"github.com/sidechannelinc/nebula/firewall"
+	"github.com/sidechannelinc/nebula/header"
+	"github.com/sirupsen/logrus"
 
 	"golang.org/x/sys/windows"
 	"golang.zx2c4.com/wireguard/conn/winrio"

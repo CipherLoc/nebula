@@ -1,8 +1,8 @@
 package udp
 
 import (
-	"github.com/slackhq/nebula/header"
-	"github.com/slackhq/nebula/iputil"
+	"github.com/sidechannelinc/nebula/header"
+	"github.com/sidechannelinc/nebula/iputil"
 )
 
 type EncWriter interface {

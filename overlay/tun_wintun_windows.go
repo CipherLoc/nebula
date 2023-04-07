@@ -8,10 +8,10 @@ import (
 	"net/netip"
 	"unsafe"
 
+	"github.com/sidechannelinc/nebula/cidr"
+	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/sidechannelinc/nebula/wintun"
 	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/cidr"
-	"github.com/slackhq/nebula/iputil"
-	"github.com/slackhq/nebula/wintun"
 	"golang.org/x/sys/windows"
 	"golang.zx2c4.com/wireguard/windows/tunnel/winipcfg"
 )

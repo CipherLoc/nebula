@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/slackhq/nebula/iputil"
+	"github.com/sidechannelinc/nebula/iputil"
 	"github.com/stretchr/testify/assert"
 )
 

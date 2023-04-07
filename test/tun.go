@@ -5,7 +5,7 @@ import (
 	"io"
 	"net"
 
-	"github.com/slackhq/nebula/iputil"
+	"github.com/sidechannelinc/nebula/iputil"
 )
 
 type NoopTun struct{}

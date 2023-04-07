@@ -5,10 +5,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/slackhq/nebula/header"
-	"github.com/slackhq/nebula/iputil"
-	"github.com/slackhq/nebula/test"
-	"github.com/slackhq/nebula/udp"
+	"github.com/sidechannelinc/nebula/header"
+	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/sidechannelinc/nebula/test"
+	"github.com/sidechannelinc/nebula/udp"
 	"github.com/stretchr/testify/assert"
 )
 

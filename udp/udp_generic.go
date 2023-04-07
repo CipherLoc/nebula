@@ -13,10 +13,10 @@ import (
 	"fmt"
 	"net"
 
+	"github.com/sidechannelinc/nebula/config"
+	"github.com/sidechannelinc/nebula/firewall"
+	"github.com/sidechannelinc/nebula/header"
 	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/config"
-	"github.com/slackhq/nebula/firewall"
-	"github.com/slackhq/nebula/header"
 )
 
 type Conn struct {

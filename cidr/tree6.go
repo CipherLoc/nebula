@@ -3,7 +3,7 @@ package cidr
 import (
 	"net"
 
-	"github.com/slackhq/nebula/iputil"
+	"github.com/sidechannelinc/nebula/iputil"
 )
 
 const startbit6 = uint64(1 << 63)

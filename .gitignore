@@ -13,3 +13,5 @@
 /e2e/mermaid/
 /lib
 .vscode
+/bin
+/nul

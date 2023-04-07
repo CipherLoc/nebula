@@ -1,8 +1,8 @@
 package udp
 
 import (
-	"github.com/slackhq/nebula/firewall"
-	"github.com/slackhq/nebula/header"
+	"github.com/sidechannelinc/nebula/firewall"
+	"github.com/sidechannelinc/nebula/header"
 )
 
 const MTU = 9001

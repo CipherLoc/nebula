@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/slackhq/nebula/iputil"
+	"github.com/sidechannelinc/nebula/iputil"
 )
 
 // How many timer objects should be cached

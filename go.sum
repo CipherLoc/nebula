@@ -209,10 +209,14 @@ github.com/prometheus/procfs v0.8.0/go.mod h1:z7EfXMXOkbkqb9IINtpCn86r/to3BnA0ua
 github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 h1:N/ElC8H3+5XpJzTSTfLsJV/mx9Q9g7kxmchpfZyxgzM=
 github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475/go.mod h1:bCqnVzQkZxMG4s8nGwiZ5l3QUCyqpo9Y+/ZMZ9VjZe4=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
+github.com/sidechannelinc/nebula v1.6.1 h1:/OCTR3abj0Sbf2nGoLUrdDXImrCv0ZVFpVPP5qa0DsM=
+github.com/sidechannelinc/nebula v1.6.1/go.mod h1:UmkqnXe4O53QwToSl/gG7sM4BroQwAB7dd4hUaT6MlI=
 github.com/sidechannelinc/noise v1.2.0 h1:apteUkR+1CGYks5rPAgIRI1vW6Cc5/Y9hEoW+rg2ItU=
 github.com/sidechannelinc/noise v1.2.0/go.mod h1:ijPKr2wEWftfxsgnXP0fC+/GCCnzVRfqX+c8gtRtvYc=
 github.com/sidechannelinc/noise v1.3.0 h1:JHfqXgpnOxgV+jfGwkM9I98HfqmP9x8iQBr3aKM7y6c=
 github.com/sidechannelinc/noise v1.3.0/go.mod h1:wlkYn70sYp/SLFICcvSYzmgUqozkZ0LnCG921Q3FJtM=
+github.com/sidechannelinc/noise v1.3.1 h1:0aDcNQMgEqM4RhOHpOL28yEGZmgVqiF5xJjK8ea2fJM=
+github.com/sidechannelinc/noise v1.3.1/go.mod h1:wlkYn70sYp/SLFICcvSYzmgUqozkZ0LnCG921Q3FJtM=
 github.com/sirupsen/logrus v1.2.0/go.mod h1:LxeOpSwHxABJmUn/MG1IvRgCAasNZTLOkJPxbbu5VWo=
 github.com/sirupsen/logrus v1.4.2/go.mod h1:tLMulIdttU9McNUspp0xgXVQah82FyeX6MwdIuYE2rE=
 github.com/sirupsen/logrus v1.6.0/go.mod h1:7uNnSEd1DgxDLC74fIahvMZmmYsHGZGEOFrfsX/uA88=
@@ -220,8 +224,6 @@ github.com/sirupsen/logrus v1.9.0 h1:trlNQbNUG3OdDrDil03MCb1H2o9nJ1x4/5LYw7byDE0
 github.com/sirupsen/logrus v1.9.0/go.mod h1:naHLuLoDiP4jHNo9R0sCBMtWGeIprob74mVsIT4qYEQ=
 github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e h1:MRM5ITcdelLK2j1vwZ3Je0FKVCfqOLp5zO6trqMLYs0=
 github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e/go.mod h1:XV66xRDqSt+GTGFMVlhk3ULuV0y9ZmzeVGR4mloJI3M=
-github.com/slackhq/nebula v1.6.1 h1:/OCTR3abj0Sbf2nGoLUrdDXImrCv0ZVFpVPP5qa0DsM=
-github.com/slackhq/nebula v1.6.1/go.mod h1:UmkqnXe4O53QwToSl/gG7sM4BroQwAB7dd4hUaT6MlI=
 github.com/songgao/water v0.0.0-20200317203138-2b4b6d7c09d8 h1:TG/diQgUe0pntT/2D9tmUCz4VNwm9MfrtPr0SU2qSX8=
 github.com/songgao/water v0.0.0-20200317203138-2b4b6d7c09d8/go.mod h1:P5HUIBuIWKbyjl083/loAegFkfbFNx5i2qEP4CNbm7E=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=

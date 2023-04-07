@@ -398,13 +398,13 @@ created.)
 
 - Initial public release.
 
-[Unreleased]: https://github.com/slackhq/nebula/compare/v1.6.1...HEAD
-[1.6.1]: https://github.com/slackhq/nebula/releases/tag/v1.6.1
-[1.6.0]: https://github.com/slackhq/nebula/releases/tag/v1.6.0
-[1.5.2]: https://github.com/slackhq/nebula/releases/tag/v1.5.2
-[1.5.0]: https://github.com/slackhq/nebula/releases/tag/v1.5.0
-[1.4.0]: https://github.com/slackhq/nebula/releases/tag/v1.4.0
-[1.3.0]: https://github.com/slackhq/nebula/releases/tag/v1.3.0
-[1.2.0]: https://github.com/slackhq/nebula/releases/tag/v1.2.0
-[1.1.0]: https://github.com/slackhq/nebula/releases/tag/v1.1.0
-[1.0.0]: https://github.com/slackhq/nebula/releases/tag/v1.0.0
+[Unreleased]: https://github.com/sidechannelinc/nebula/compare/v1.6.1...HEAD
+[1.6.1]: https://github.com/sidechannelinc/nebula/releases/tag/v1.6.1
+[1.6.0]: https://github.com/sidechannelinc/nebula/releases/tag/v1.6.0
+[1.5.2]: https://github.com/sidechannelinc/nebula/releases/tag/v1.5.2
+[1.5.0]: https://github.com/sidechannelinc/nebula/releases/tag/v1.5.0
+[1.4.0]: https://github.com/sidechannelinc/nebula/releases/tag/v1.4.0
+[1.3.0]: https://github.com/sidechannelinc/nebula/releases/tag/v1.3.0
+[1.2.0]: https://github.com/sidechannelinc/nebula/releases/tag/v1.2.0
+[1.1.0]: https://github.com/sidechannelinc/nebula/releases/tag/v1.1.0
+[1.0.0]: https://github.com/sidechannelinc/nebula/releases/tag/v1.0.0

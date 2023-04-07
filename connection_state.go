@@ -6,9 +6,9 @@ import (
 	"sync"
 	"sync/atomic"
 
+	"github.com/sidechannelinc/nebula/cert"
 	"github.com/sidechannelinc/noise"
 	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/cert"
 )
 
 const ReplayWindow = 1024

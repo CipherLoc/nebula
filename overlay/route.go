@@ -7,10 +7,10 @@ import (
 	"runtime"
 	"strconv"
 
+	"github.com/sidechannelinc/nebula/cidr"
+	"github.com/sidechannelinc/nebula/config"
+	"github.com/sidechannelinc/nebula/iputil"
 	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/cidr"
-	"github.com/slackhq/nebula/config"
-	"github.com/slackhq/nebula/iputil"
 )
 
 type Route struct {

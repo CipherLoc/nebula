@@ -10,11 +10,11 @@ import (
 	"time"
 
 	"github.com/rcrowley/go-metrics"
-	"github.com/slackhq/nebula/cert"
-	"github.com/slackhq/nebula/config"
-	"github.com/slackhq/nebula/firewall"
-	"github.com/slackhq/nebula/iputil"
-	"github.com/slackhq/nebula/test"
+	"github.com/sidechannelinc/nebula/cert"
+	"github.com/sidechannelinc/nebula/config"
+	"github.com/sidechannelinc/nebula/firewall"
+	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/sidechannelinc/nebula/test"
 	"github.com/stretchr/testify/assert"
 )
 

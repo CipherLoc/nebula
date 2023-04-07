@@ -18,7 +18,7 @@ You can also join the NebulaOSS Slack group [here](https://join.slack.com/t/nebu
 
 #### Desktop and Server
 
-Check the [releases](https://github.com/slackhq/nebula/releases/latest) page for downloads or see the [Distribution Packages](https://github.com/slackhq/nebula#distribution-packages) section.
+Check the [releases](https://github.com/sidechannelinc/nebula/releases/latest) page for downloads or see the [Distribution Packages](https://github.com/sidechannelinc/nebula#distribution-packages) section.
 
 - Linux - 64 and 32 bit, arm, and others
 - Windows
@@ -58,7 +58,7 @@ Nebula was created to provide a mechanism for groups of hosts to communicate sec
 
 To set up a Nebula network, you'll need:
 
-#### 1. The [Nebula binaries](https://github.com/slackhq/nebula/releases) or [Distribution Packages](https://github.com/slackhq/nebula#distribution-packages) for your specific platform. Specifically you'll need `nebula-cert` and the specific nebula binary for each platform you use.
+#### 1. The [Nebula binaries](https://github.com/sidechannelinc/nebula/releases) or [Distribution Packages](https://github.com/sidechannelinc/nebula#distribution-packages) for your specific platform. Specifically you'll need `nebula-cert` and the specific nebula binary for each platform you use.
 
 #### 2. (Optional, but you really should..) At least one discovery node with a routable IP address, which we call a lighthouse.
 
@@ -84,7 +84,7 @@ This assumes you have four nodes, named lighthouse1, laptop, server1, host3. You
 ```
 
 #### 5. Configuration files for each host
-Download a copy of the nebula [example configuration](https://github.com/slackhq/nebula/blob/master/examples/config.yml).
+Download a copy of the nebula [example configuration](https://github.com/sidechannelinc/nebula/blob/master/examples/config.yml).
 
 * On the lighthouse node, you'll need to ensure `am_lighthouse: true` is set.
 

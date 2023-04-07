@@ -14,11 +14,11 @@ import (
 	"time"
 
 	"github.com/rcrowley/go-metrics"
+	"github.com/sidechannelinc/nebula/cert"
+	"github.com/sidechannelinc/nebula/cidr"
+	"github.com/sidechannelinc/nebula/config"
+	"github.com/sidechannelinc/nebula/firewall"
 	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/cert"
-	"github.com/slackhq/nebula/cidr"
-	"github.com/slackhq/nebula/config"
-	"github.com/slackhq/nebula/firewall"
 )
 
 const tcpACK = 0x10

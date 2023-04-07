@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/sidechannelinc/nebula/cert"
+	"github.com/sidechannelinc/nebula/firewall"
+	"github.com/sidechannelinc/nebula/header"
+	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/sidechannelinc/nebula/udp"
 	"github.com/sidechannelinc/noise"
 	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/cert"
-	"github.com/slackhq/nebula/firewall"
-	"github.com/slackhq/nebula/header"
-	"github.com/slackhq/nebula/iputil"
-	"github.com/slackhq/nebula/udp"
 	"golang.org/x/net/ipv4"
 	"google.golang.org/protobuf/proto"
 )

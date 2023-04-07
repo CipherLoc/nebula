@@ -5,9 +5,9 @@ import (
 	"sync"
 	"time"
 
+	"github.com/sidechannelinc/nebula/header"
+	"github.com/sidechannelinc/nebula/iputil"
 	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/header"
-	"github.com/slackhq/nebula/iputil"
 )
 
 // TODO: incount and outcount are intended as a shortcut to locking the mutexes for every single packet

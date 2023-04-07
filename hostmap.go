@@ -10,12 +10,12 @@ import (
 	"time"
 
 	"github.com/rcrowley/go-metrics"
+	"github.com/sidechannelinc/nebula/cert"
+	"github.com/sidechannelinc/nebula/cidr"
+	"github.com/sidechannelinc/nebula/header"
+	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/sidechannelinc/nebula/udp"
 	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/cert"
-	"github.com/slackhq/nebula/cidr"
-	"github.com/slackhq/nebula/header"
-	"github.com/slackhq/nebula/iputil"
-	"github.com/slackhq/nebula/udp"
 )
 
 //const ProbeLen = 100

@@ -5,8 +5,8 @@ import (
 	"strings"
 	"time"
 
+	"github.com/sidechannelinc/nebula/config"
 	"github.com/sirupsen/logrus"
-	"github.com/slackhq/nebula/config"
 )
 
 func configLogger(l *logrus.Logger, c *config.C) error {

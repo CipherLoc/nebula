@@ -6,8 +6,8 @@ import (
 	"sort"
 	"sync"
 
-	"github.com/slackhq/nebula/iputil"
-	"github.com/slackhq/nebula/udp"
+	"github.com/sidechannelinc/nebula/iputil"
+	"github.com/sidechannelinc/nebula/udp"
 )
 
 // forEachFunc is used to benefit folks that want to do work inside the lock

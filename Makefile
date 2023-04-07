@@ -4,10 +4,12 @@ GO111MODULE = on
 export GO111MODULE
 CGO_ENABLED = 1
 export CGO_ENABLED
+FIPS = 1
+export FIPS
 
 FIPS_TAG=
 ifeq ($(FIPS),1)
-  FIPS_TAG=--tags=fips
+  FIPS_TAG=-tags=fips
 endif
 
 # Set up OS specific bits
