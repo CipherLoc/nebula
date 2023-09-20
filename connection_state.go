@@ -6,7 +6,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/cipherloc/noise"
+	"github.com/sidechannelinc/noise"
 	"github.com/sirupsen/logrus"
 	"github.com/slackhq/nebula/cert"
 )

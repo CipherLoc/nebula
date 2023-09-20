@@ -17,7 +17,7 @@ import (
 	//"fmt"
 	//"unsafe"
 
-	"github.com/cipherloc/noise"
+	"github.com/sidechannelinc/noise"
 )
 
 type endianness interface {
